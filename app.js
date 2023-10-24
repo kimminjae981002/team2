@@ -148,7 +148,7 @@ const createCard = (movie) => {
     // modalContainer.innerHTML = ""; // 연속으로 줄줄이 나오기 때문에 빈칸으로 만든 후
     // modalContainer.style.display = "block";
     // cardModal(movie); // 재실행
-    window.location.href = `../영화상세페이지/movie.html?id=${id}`;
+    window.location.href = `./영화상세페이지/movie.html?id=${id}`;
   });
 };
 // 모달창 카드와 비슷(실행위치가 다르다.)
