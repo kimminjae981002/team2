@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js" type="module" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://use.fontawesome.com/5c26147856.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>개인과제</title>
+  </head>
+  <body>
+    <!-- ⭐ -->
+    <header class="header">
+      <h1>앟하하하하 힘드렁</h1>
+    </header>
+    <div class="movieSearch">
+      <button class="home">🏠</button>
+      <div class="search">
+        <label class="searchMovieInputLabel" for="searchMovieInput">
+          영화 검색:
+        </label>
+        <input
+          type="search"
+          id="searchMovieInput"
+          placeholder="영화를 입력하세요."
+        />
+        <button class="searchMovieBtn">검색</button>
+      </div>
+    </div>
+    <div class="pageBtnBar">
+      <button class="prevBtn">이전</button>
+      <span class="page">[1]</span>
+      <button class="nextBtn">다음</button>
+    </div>
+    <div class="movieCardLine"></div>
+    <div class="modalContainer"></div>
+  </body>
+</html>
