@@ -111,6 +111,8 @@ const createComment = () => {
   comment.forEach((comment) => {
     let result_name = document.createElement("div");
     let result_info = document.createElement("div");
+    const delete_button = document.createAttribute("button");
+    delete_button.innerText = "삭제";
     const ha = document.querySelector(".ha");
     result_name.innerText = comment.name;
     result_info.innerText = comment.info;
