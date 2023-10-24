@@ -9,6 +9,7 @@ const options = {
 
 function ViewTrailer() {
   const urlParams = new URLSearchParams(window.location.search);
+  //   console.log(urlParams);
   const movieId = urlParams.get("id");
   fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=ko-KO`, options)
     .then((response) => response.json())
@@ -71,6 +72,55 @@ const createPage = (movie) => {
   movie_ratio.classList.add("movie_ratio");
   movie_ratio.innerText = ratio;
   page_story.append(movie_ratio);
+
+  createComment();
 };
 
 ViewTrailer();
+
+const comment = [];
+
+const createComment = () => {
+  const comment_name = document.getElementById("comment_name");
+  const comment_info = document.getElementById("comment_info");
+  const btn = document.querySelector(".btn");
+
+  const ds = () => {
+    if (comment_name.value && comment_info.value) {
+      const newComment = { name: comment_name.value, info: comment_info.value };
+      comment.push(newComment);
+      updateLocalStorate();
+      window.location.reload();
+    }
+  };
+
+  btn.addEventListener("click", ds);
+  const updateLocalStorate = () => {
+    localStorage.setItem("comment", JSON.stringify(comment));
+  };
+
+  const l = () => {
+    const storedComments = localStorage.getItem("comment");
+    if (storedComments) {
+      comment.push(...JSON.parse(storedComments));
+    }
+  };
+
+  l();
+
+  comment.forEach((comment) => {
+    let result_name = document.createElement("div");
+    let result_info = document.createElement("div");
+    const ha = document.querySelector(".ha");
+    result_name.innerText = comment.name;
+    result_info.innerText = comment.info;
+    ha.append(result_name);
+    ha.append(result_info);
+  });
+
+  //   .addEventListener("keyup", function (event) {
+  //     if (event.key === "Enter") {
+  //       ds();
+  //     }
+  //   });
+};
